@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Election Assistant</title>
+    <meta name="description" content="An interactive assistant to help you understand the election process, timelines, and steps in India.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" aria-label="Main Navigation">
+            <div class="logo">
+                <span class="material-icons-round logo-icon">how_to_vote</span>
+                <h1>Election<br>Assistant</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <button class="nav-btn active" data-target="process-view" aria-label="View Election Process">
+                        <span class="material-icons-round">rule</span>
+                        <span>Process</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-btn" data-target="timeline-view" aria-label="View Election Timeline">
+                        <span class="material-icons-round">calendar_month</span>
+                        <span>Timeline</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-btn" data-target="assistant-view" aria-label="Ask the AI Assistant">
+                        <span class="material-icons-round">smart_toy</span>
+                        <span>AI Assistant</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-btn" data-target="civic-view" aria-label="Civic Information Lookup">
+                        <span class="material-icons-round">public</span>
+                        <span>Civic Info</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2 id="view-title">The Election Process</h2>
+                <div class="badge">India</div>
+            </header>
+
+            <div class="views-container">
+                <!-- Process View -->
+                <section id="process-view" class="view active" aria-labelledby="view-title">
+                    <div class="process-steps">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Voter Registration (Form 6)</h3>
+                            <p>To vote in India, you must be an Indian citizen, 18 years or older on the qualifying date (usually Jan 1st). Apply for inclusion of your name in the electoral roll using Form 6.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Verify Electoral Roll</h3>
+                            <p>Check if your name is on the electoral roll (voter list) online via the Election Commission of India (ECI) portal or NVSP to ensure you can cast your vote.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Find Your Polling Booth</h3>
+                            <p>Locate your designated polling booth. You can use your Voter ID (EPIC number) on the ECI website or via SMS to find your exact booth location.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Voting on Election Day</h3>
+                            <p>Bring your Voter ID or any approved photo ID. Follow the queue, get your finger inked, and press the button on the Electronic Voting Machine (EVM) against your chosen candidate. Check the VVPAT slip to verify your vote.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Timeline View -->
+                <section id="timeline-view" class="view" aria-hidden="true">
+                    <div class="timeline">
+                        <div class="timeline-event">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Announcement & Code of Conduct</h3>
+                                <p>The Election Commission announces the schedule. The Model Code of Conduct immediately comes into effect to ensure fair elections.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Filing Nominations</h3>
+                                <p>Candidates submit their nomination papers and affidavits detailing their assets, liabilities, and criminal records (if any).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Scrutiny & Withdrawal</h3>
+                                <p>Nomination papers are scrutinized. Valid candidates are given a window to withdraw their nominations if they choose.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Campaigning</h3>
+                                <p>Candidates campaign up to 48 hours before polling begins. This period is for public meetings, rallies, and media outreach.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Polling Day</h3>
+                                <p>Voters cast their votes using EVMs across designated polling booths under tight security.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Counting & Results</h3>
+                                <p>Votes are counted securely. The candidate with the highest number of votes in the constituency is declared the winner.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Assistant View -->
+                <section id="assistant-view" class="view" aria-hidden="true">
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chat-messages" aria-live="polite">
+                            <div class="message bot">
+                                <div class="avatar"><span class="material-icons-round">smart_toy</span></div>
+                                <div class="message-content">
+                                    Hello! I am your AI Election Assistant. You can ask me questions about the Indian election process, voter registration, or how EVMs work.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" placeholder="Ask a question about the election process..." aria-label="Type your message">
+                            <button id="send-btn" aria-label="Send message">
+                                <span class="material-icons-round">send</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Civic Info View -->
+                <section id="civic-view" class="view" aria-hidden="true">
+                    <div class="civic-container">
+                        <div class="info-card">
+                            <span class="material-icons-round icon-large">info</span>
+                            <h3>Google Civic Information API Note</h3>
+                            <p>The Google Civic Information API primarily supports US addresses for polling locations and representatives. For India, the API coverage may be limited. However, you can try searching below.</p>
+                        </div>
+                        <div class="search-bar">
+                            <input type="text" id="civic-input" placeholder="Enter an address..." aria-label="Enter address">
+                            <button id="civic-search-btn" class="primary-btn">Search</button>
+                        </div>
+                        <div id="civic-results" class="results-container" aria-live="polite">
+                            <!-- Results will be injected here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

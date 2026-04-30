@@ -1,0 +1,5 @@
+The provided Gemini API key has exceeded its quota limits. The error message indicates:
+
+"You exceeded your current quota, please check your plan and billing details... Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests"
+
+This is why the AI assistant is unable to generate responses. Please verify your billing details or wait until the quota resets, or provide a new API key.
