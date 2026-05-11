@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addLoadingIndicator(loadingId);
 
         try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -75,6 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             removeElement(loadingId);
+
+            if (!response.ok) {
+                const errorMsg = data.error && data.error.message ? data.error.message : 'Unknown API error';
+                addMessage(`⚠️ **API Error:** ${errorMsg}`, 'bot');
+                return;
+            }
 
             if (data.candidates && data.candidates.length > 0) {
                 const botText = data.candidates[0].content.parts[0].text;
